@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CS350 - Operating Systems Notes",
-  description: "Comprehensive operating systems notes and study materials",
+  title: "CS362 & CS441 - Course Notes",
+  description: "Personal study notes for Operating Systems (CS-441) and Systems Administration (CS-362)",
+  icons: {
+    icon: '/note_icon.svg',
+  },
 };
 
 export default function RootLayout({
