@@ -14,7 +14,7 @@ export default function TableOfContents({ lectures = [] }: TableOfContentsProps)
   // Group lectures by course
   const lecturesByCategory = {
     os: lectures.filter(lecture => lecture.course === 'os' || !lecture.course),
-    sysadmin: lectures.filter(lecture => lecture.course === 'sysadmin'),
+    ids: lectures.filter(lecture => lecture.course === 'ids'),
   };
 
   const backlinks = [
@@ -60,7 +60,7 @@ export default function TableOfContents({ lectures = [] }: TableOfContentsProps)
           </ul>
         </div>
 
-        {/* Systems Administration Section */}
+        {/* Intrusion Detection Section */}
         <div style={{ marginBottom: '1.5rem' }}>
           <h4 style={{ 
             fontSize: '0.875rem', 
@@ -71,11 +71,11 @@ export default function TableOfContents({ lectures = [] }: TableOfContentsProps)
             textTransform: 'uppercase',
             letterSpacing: '0.05em'
           }}>
-            Systems Administration
+            Intrusion Detection
           </h4>
           <ul className="toc-list">
-            {lecturesByCategory.sysadmin && lecturesByCategory.sysadmin.length > 0 ? (
-              lecturesByCategory.sysadmin.map((lecture) => (
+            {lecturesByCategory.ids && lecturesByCategory.ids.length > 0 ? (
+              lecturesByCategory.ids.map((lecture) => (
                 <li key={lecture.slug} className="toc-item">
                   <Link 
                     href={`/lectures/${lecture.slug}`}
@@ -87,7 +87,7 @@ export default function TableOfContents({ lectures = [] }: TableOfContentsProps)
               ))
             ) : (
               <li className="toc-item">
-                <span className="toc-link">No SysAdmin lectures available</span>
+                <span className="toc-link">No IDS lectures available</span>
               </li>
             )}
           </ul>

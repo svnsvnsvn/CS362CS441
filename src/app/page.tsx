@@ -8,7 +8,7 @@ export default function HomePage() {
   // Group lectures by course on the server side
   const lecturesByCategory = {
     os: lectures.filter(lecture => lecture.course === 'os' || !lecture.course),
-    sysadmin: lectures.filter(lecture => lecture.course === 'sysadmin'),
+    ids: lectures.filter(lecture => lecture.course === 'ids'),
   };
   
   return (
@@ -24,7 +24,7 @@ export default function HomePage() {
         </div>
 
         <div className="lecture-content">
-          <h2 className="lecture-title">Operating Systems & Systems Administration</h2>
+          <h2 className="lecture-title">Operating Systems & Intrusion Detection</h2>
           
           <div className="content-section">
             <p style={{ marginBottom: '1.5rem', fontSize: '1.125rem', lineHeight: '1.6' }}>
@@ -60,33 +60,33 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Systems Administration Section */}
+            {/* Intrusion Detection Section */}
             <div style={{ marginBottom: '2.5rem' }}>
               <h3 style={{ marginBottom: '1rem', color: 'var(--ink-blue)', fontWeight: '500' }}>
-                Systems Administration (CS-362)
+                Intrusion Detection (CS-427)
               </h3>
               <div className="answer-content">
                 <p style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>
-                  Hands-on system administration with Windows and Linux.
+                  Network and host-based intrusion detection concepts, packet analysis, and signature/behavioral detection.
                 </p>
                 <ul>
-                  <li>Windows Command Line Interface (CMD)</li>
-                  <li>Installing and Configuring Kali Linux</li>
-                  <li>Linux Basic Commands and Manual Pages</li>
-                  <li>Linux File System Structure</li>
-                  <li>Managing Users and Groups</li>
-                  <li>Password and Shadow File Management</li>
-                  <li>File and Directory Permissions</li>
-                  <li>Finding Files and Directories</li>
-                  <li>File Compression and Backup Strategies</li>
-                  <li>Local Storage Management</li>
-                  <li>Introduction to Bash Scripting</li>
-                  <li>Regular Expressions</li>
-                  <li>System Monitoring and Log File Analysis</li>
+                  <li>Intro to IDS, IPS, SIEM, Firewalls</li>
+                  <li>Network fundamentals review</li>
+                  <li>TCP/UDP intrusion patterns</li>
+                  <li>Packet fragmentation & evasion</li>
+                  <li>Firewall analysis & midterm review</li>
+                  <li>Snort install & architecture</li>
+                  <li>Snort modes and signatures</li>
+                  <li>Writing Snort rules</li>
+                  <li>Advanced rule tuning</li>
+                  <li>Indicator of compromise analysis</li>
+                  <li>Threat intelligence frameworks</li>
+                  <li>Threat intel analysis & reporting</li>
+                  <li>Final review & exam prep</li>
                 </ul>
-                {lecturesByCategory.sysadmin.length > 0 && (
-                  <Link href={`/lectures/${lecturesByCategory.sysadmin[0].slug}`} className="btn btn-secondary" style={{ marginTop: '1rem', display: 'inline-block' }}>
-                    Start Sys Admin Course →
+                {lecturesByCategory.ids.length > 0 && (
+                  <Link href={`/lectures/${lecturesByCategory.ids[0].slug}`} className="btn btn-secondary" style={{ marginTop: '1rem', display: 'inline-block' }}>
+                    Start IDS Course →
                   </Link>
                 )}
               </div>

@@ -21,7 +21,8 @@ export interface Lecture {
 }
 
 const operatingSystemsDirectory = path.join(process.cwd(), 'content/operating-systems');
-const systemsAdministrationDirectory = path.join(process.cwd(), 'content/systems-administration');
+// Intrusion Detection course directory (replacing prior systems-administration)
+const intrusionDetectionDirectory = path.join(process.cwd(), 'content/intrusion-detection');
 
 // Calculate reading time based on word count (average 200 words per minute)
 function calculateReadingTime(content: string): string {
@@ -53,23 +54,23 @@ export function getAllLectures(): LectureMetadata[] {
     allLectures.push(...osLectures);
   }
 
-  // Get Systems Admin lectures
-  if (fs.existsSync(systemsAdministrationDirectory)) {
-    const sysadminLectures = fs.readdirSync(systemsAdministrationDirectory)
+  // Get Intrusion Detection lectures
+  if (fs.existsSync(intrusionDetectionDirectory)) {
+    const idsLectures = fs.readdirSync(intrusionDetectionDirectory)
       .filter((name) => name.endsWith('.md'))
       .map((name) => {
-        const fullPath = path.join(systemsAdministrationDirectory, name);
+        const fullPath = path.join(intrusionDetectionDirectory, name);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
-        
+
         return {
           ...data,
           slug: name.replace(/\.md$/, ''),
-          course: 'sysadmin',
+          course: 'ids',
           calculatedDuration: calculateReadingTime(content),
         } as LectureMetadata;
       });
-    allLectures.push(...sysadminLectures);
+    allLectures.push(...idsLectures);
   }
 
   return allLectures.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
@@ -80,7 +81,7 @@ export function getLecturesByCategory() {
   
   return {
     os: allLectures.filter(lecture => lecture.course === 'os'),
-    sysadmin: allLectures.filter(lecture => lecture.course === 'sysadmin'),
+  ids: allLectures.filter(lecture => lecture.course === 'ids'),
   };
 }
 
@@ -102,8 +103,8 @@ export function getLectureBySlug(slug: string): Lecture | null {
       };
     }
 
-    // Try sysadmin lectures
-    fullPath = path.join(systemsAdministrationDirectory, `${slug}.md`);
+  // Try intrusion detection lectures
+  fullPath = path.join(intrusionDetectionDirectory, `${slug}.md`);
     if (fs.existsSync(fullPath)) {
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
@@ -112,7 +113,7 @@ export function getLectureBySlug(slug: string): Lecture | null {
         metadata: {
           ...data,
           slug,
-          course: 'sysadmin',
+      course: 'ids',
         } as LectureMetadata,
         content,
       };

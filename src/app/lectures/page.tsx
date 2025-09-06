@@ -9,7 +9,7 @@ export default function LecturesPage() {
   // Group lectures by course on the server side
   const lecturesByCategory = {
     os: lectures.filter(lecture => lecture.course === 'os' || !lecture.course),
-    sysadmin: lectures.filter(lecture => lecture.course === 'sysadmin'),
+    ids: lectures.filter(lecture => lecture.course === 'ids'),
   };
   
   return (
@@ -50,15 +50,15 @@ export default function LecturesPage() {
                 </div>
               </div>
             )}
-            {/* Systems Administration Section */}
-            {lecturesByCategory.sysadmin.length > 0 && (
+            {/* Intrusion Detection Section */}
+            {lecturesByCategory.ids.length > 0 && (
               <div style={{ marginBottom: '2.5rem' }}>
                 <h3 style={{ marginBottom: '1rem', color: 'var(--ink-blue)', fontWeight: '500' }}>
-                  Systems Administration
+                  Intrusion Detection
                 </h3>
                 <div className="answer-content">
                   <ul>
-                    {lecturesByCategory.sysadmin.map((lecture) => (
+                    {lecturesByCategory.ids.map((lecture) => (
                       <li key={lecture.slug} style={{ marginBottom: '0.5rem' }}>
                         <Link href={`/lectures/${lecture.slug}`} style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>
                           {lecture.title}
