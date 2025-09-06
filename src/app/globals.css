@@ -1,26 +1,710 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  /* Soft Pink & Mauve Palette */
+  --text-primary: #4a4a5a;      /* Soft dark purple-gray for primary text */
+  --text-secondary: #6b6b7d;    /* Medium purple-gray for secondary text */
+  --text-muted: #9898a8;        /* Light purple-gray for muted text */
+  
+  /* Soft Pink Accents */
+  --accent-primary: #e0a5c7;    /* Soft dusty rose */
+  --accent-soft: #faf7f9;       /* Very light pink background */
+  --accent-border: #f0e6ed;     /* Soft pink border */
+  
+  /* Neutral Base with Pink Undertones */
   --background: #ffffff;
-  --foreground: #171717;
+  --surface: #fdfcfd;           /* Soft white with pink undertone */
+  --border: #e8e0e6;           /* Soft mauve border */
+  --border-light: #f3f0f2;     /* Light pink-tinted border */
+  --card: #fefcfe;             /* Very light card background */
+  
+  /* Interaction Colors */
+  --hover: #faf6f8;            /* Soft pink hover */
+  --focus: #f5f0f3;            /* Soft pink focus */
+  
+  /* Extended Pink Palette */
+  --pink-50: #fdf2f8;
+  --pink-100: #fce7f3;
+  --pink-200: #fbcfe8;
+  --pink-300: #f9a8d4;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+  --mauve-50: #faf7fb;
+  --mauve-100: #f4eff5;
+  --mauve-200: #e9dfe5;
+  --mauve-300: #d4c4ce;
+  
+  /* Unified Theme Colors - All Soft Pink/Mauve */
+  --ink-blue: #4a4a5a;         /* Use text-primary instead of blue */
+  --pink-accent: #e0a5c7;      /* Main pink accent */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.3;
+  color: var(--ink-blue);
+  margin-bottom: 1rem;
+}
+
+h1 { 
+  font-size: 2.75rem; 
+  font-weight: 700; 
+  letter-spacing: -0.02em;
+}
+h2 { 
+  font-size: 2.25rem; 
+  font-weight: 400; 
+  letter-spacing: -0.01em;
+}
+h3 { 
+  font-size: 1.75rem; 
+  font-weight: 400; 
+}
+
+/* Link Styles */
+.github-link:hover {
+  text-decoration: underline !important;
+}
+
+/* Clean Academic Layout */
+.academic-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 280px;
+  background: var(--surface);
+  border-right: 1px solid var(--border-light);
+  padding: 1.5rem;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: none;
+  background: var(--background);
+}
+
+/* Table of Contents Styling */
+.toc {
+  margin-bottom: 2rem;
+}
+
+.toc h3 {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item {
+  margin-bottom: 0.25rem;
+}
+
+.toc-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  border-left: 3px solid transparent;
+}
+
+.toc-link:hover {
+  color: var(--text-primary);
+  background: var(--hover);
+}
+
+.toc-link.active {
+  color: var(--text-primary);
+  background: var(--hover);
+  border-left-color: var(--pink-accent);
+  font-weight: 500;
+}
+
+/* Course Header */
+.course-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.course-title {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ink-blue);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.course-meta {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.course-meta a {
+  color: var(--pink-accent);
+  text-decoration: none;
+}
+
+.course-meta a:hover {
+  text-decoration: underline;
+}
+
+/* Lecture Content */
+.lecture-content {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  margin-bottom: 2rem;
+}
+
+.lecture-title {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--ink-blue);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Question Blocks - Professional Academic Style */
+.question-block {
+  background: var(--accent-soft);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent-primary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.question-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.question-text {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+/* Answer Content */
+.answer-content {
+  margin-top: 1rem;
+  color: var(--text-primary);
+}
+
+.answer-content ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.answer-content li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.answer-content li::before {
+  content: "•";
+  color: var(--accent-primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.answer-content li ul {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.answer-content li ul li::before {
+  content: "◦";
+  color: var(--text-secondary);
+}
+
+/* Code and Technical Terms */
+code {
+  background: var(--card);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.9em;
+  color: var(--text-primary);
+  border: 1px solid var(--pink-200);
+}
+
+/* Emphasized Text */
+strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+em {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Section Spacing */
+.content-section {
+  margin-bottom: 2.5rem;
+}
+
+/* Table Styles - Enhanced Soft Pink Theme */
+.markdown-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--background);
+  border-radius: 16px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.05), 
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    0 0 0 1px var(--border-light);
+  overflow: hidden;
+  margin: 2rem 0;
+  font-feature-settings: "tnum";
+}
+
+.markdown-table thead {
+  background: var(--pink-100);
+  position: relative;
+}
+
+.markdown-table thead::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--pink-300) 50%, transparent 100%);
+}
+
+.markdown-table thead th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--pink-200);
+  background: var(--pink-100);
+  position: relative;
+}
+
+.markdown-table thead th:first-child {
+  border-top-left-radius: 16px;
+}
+
+.markdown-table thead th:last-child {
+  border-top-right-radius: 16px;
+}
+
+/* Column separators */
+.markdown-table thead th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  right: 0;
+  bottom: 25%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, var(--pink-300) 50%, transparent 100%);
+}
+
+.markdown-table tbody {
+  background: var(--background);
+}
+
+.markdown-table tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.markdown-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.markdown-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 16px;
+}
+
+.markdown-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 16px;
+}
+
+.markdown-table tbody td {
+  padding: 1.25rem 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  vertical-align: top;
+  position: relative;
+}
+
+.markdown-table tbody td strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.markdown-table tbody td code {
+  background: var(--pink-50);
+  color: var(--text-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.85em;
+  border: 1px solid var(--pink-200);
+}
+
+/* Responsive table design */
+@media (max-width: 768px) {
+  .markdown-table {
+    margin: 1.5rem -1rem;
+    border-radius: 0;
+    box-shadow: none;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .markdown-table thead th,
+  .markdown-table tbody td {
+    padding: 1rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .markdown-table thead th:first-child,
+  .markdown-table thead th:last-child,
+  .markdown-table tbody tr:last-child td:first-child,
+  .markdown-table tbody tr:last-child td:last-child {
+    border-radius: 0;
+  }
+}
+
+/* Table container for scroll on mobile */
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table-container .markdown-table {
+  margin: 0;
+  min-width: 100%;
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 260px;
+  }
+  
+  .main-content {
+    margin-left: 260px;
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .academic-layout {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.5rem;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+  
+  .course-title {
+    font-size: 2rem;
+  }
+  
+  .lecture-title {
+    font-size: 1.75rem;
+  }
+  
+  .lecture-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--pink-400);
+  color: white;
+  border: 1px solid var(--pink-400);
+}
+
+.btn-primary:hover {
+  background: var(--pink-500);
+  border-color: var(--pink-500);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  background: var(--hover);
+  color: var(--text-primary);
+}
+
+/* Enhanced Content Section Styling */
+
+/* Overview section */
+.overview-section {
+  background: linear-gradient(135deg, var(--pink-50) 0%, var(--mauve-50) 100%);
+  border-left: 3px solid var(--pink-300);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.overview-section h2 {
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Learning objectives */
+.objectives-section {
+  background: linear-gradient(135deg, var(--mauve-50) 0%, var(--pink-50) 100%);
+  border: 1px solid var(--pink-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.objectives-section h2 {
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.objectives-section ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.objectives-section li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.objectives-section li::before {
+  content: "•";
+  color: var(--pink-400);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Prerequisites section */
+.prerequisites-section {
+  background: linear-gradient(135deg, var(--pink-100) 0%, var(--mauve-100) 100%);
+  border-left: 3px solid var(--pink-300);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.prerequisites-section h2 {
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Summary section */
+.summary-section {
+  background: linear-gradient(135deg, var(--mauve-100) 0%, var(--pink-100) 100%);
+  border: 1px solid var(--pink-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.summary-section h2 {
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Further reading section */
+.further-reading {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.further-reading h2 {
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.further-reading ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.further-reading li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.further-reading li::before {
+  content: "•";
+  color: var(--pink-400);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Definition boxes */
+.definition-box {
+  background: linear-gradient(135deg, var(--pink-50) 0%, var(--mauve-50) 100%);
+  border-left: 3px solid var(--pink-300);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.definition-box strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Application examples */
+.application-section {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(251, 207, 232, 0.12) 100%);
+  border-left: 3px solid var(--pink-accent);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.application-section h2 {
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Problem-solving sections */
+.problem-section {
+  background: linear-gradient(135deg, var(--pink-100) 0%, var(--mauve-50) 100%);
+  border-left: 3px solid var(--pink-400);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.problem-section h2 {
+  color: var(--text-primary);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
 }

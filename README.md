@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Operating Systems & Systems Administration Notes
 
-## Getting Started
+> Personal study notes for Computer Science courses taken during Fall 2025
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a digital notebook containing my personal study notes for two computer science courses:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Operating Systems (CS-441)** - Core concepts, processes, threads, memory management, and system calls
+- **Systems Administration (CS-362)** - Hands-on Windows and Linux system administration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Clean, academic design** with soft pink/mauve color scheme
+- **Responsive layout** with sidebar navigation
+- **Markdown support** with syntax highlighting and math rendering
+- **Question-based learning** format with key insights and examples
+- **Table support** for structured data presentation
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **ReactMarkdown** - Markdown rendering with plugins
+- **KaTeX** - Mathematical notation support
+- **Vercel** - Deployment platform
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Notes are organized by course and include:
+- Key concepts and definitions
+- Real-world examples and analogies  
+- System call demonstrations
+- Practical command-line examples
+- Personal insights and clarifications
 
-## Deploy on Vercel
+## Disclaimer
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+These are personal study notes that reflect my understanding of the material. They may contain errors, personal interpretations, or incomplete information. Always refer to official course materials and consult with instructors for authoritative information.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Live Site
+
+Visit the live site: [Your deployment URL here]
+
