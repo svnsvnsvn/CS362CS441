@@ -73,7 +73,17 @@ export function getAllLectures(): LectureMetadata[] {
     allLectures.push(...idsLectures);
   }
 
-  return allLectures.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  return allLectures.sort((a, b) => {
+    // First sort by course to keep courses together
+    if (a.course !== b.course) {
+      // OS lectures come first, then IDS lectures
+      if (a.course === 'os') return -1;
+      if (b.course === 'os') return 1;
+      return 0;
+    }
+    // Within the same course, sort by date
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  });
 }
 
 export function getLecturesByCategory() {
