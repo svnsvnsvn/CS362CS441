@@ -75,19 +75,6 @@ export default function LecturesPage() {
               </div>
             )}
           </div>
-          <div className="content-section">
-            <h3 style={{ marginBottom: '1rem', color: 'var(--ink-blue)' }}>How to Use These Notes</h3>
-            <p style={{ marginBottom: '1rem' }}>
-              Each lecture is structured with key questions and detailed explanations. 
-              Use the table of contents on the left to navigate between lectures.
-            </p>
-            <div className="question-block">
-              <div className="question-label">Study Tip</div>
-              <div className="question-text">
-                Review each lecture&apos;s questions before reading the content to focus your attention on key concepts.
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

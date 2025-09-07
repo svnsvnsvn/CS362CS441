@@ -95,21 +95,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="content-section">
-            <h3 style={{ marginBottom: '1rem', color: 'var(--ink-blue)' }}>How to Use These Notes</h3>
-            <p style={{ marginBottom: '1rem' }}>
-              Each lecture has key questions and explanations. 
-              Use the sidebar to navigate between lectures.
-            </p>
-            
-            <div className="question-block">
-              <div className="question-label">Study Tip</div>
-              <div className="question-text">
-                Read the questions first to know what to focus on.
-              </div>
-            </div>
-          </div>
-
                     {/* Personal Notes Disclaimer */}
           <div className="content-section" style={{ background: 'var(--accent-soft)', border: '1px solid var(--accent-border)', borderRadius: '8px', padding: '1.5rem', margin: '2rem 0' }}>
             <h3 style={{ marginBottom: '1rem', color: 'var(--ink-blue)', fontSize: '1.1rem' }}>Personal Study Notes</h3>
