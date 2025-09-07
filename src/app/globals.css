@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  /* Soft Pink & Mauve Palette */
+  /* Light Theme - Soft Pink & Mauve Palette */
   --text-primary: #4a4a5a;      /* Soft dark purple-gray for primary text */
   --text-secondary: #6b6b7d;    /* Medium purple-gray for secondary text */
   --text-muted: #9898a8;        /* Light purple-gray for muted text */
@@ -40,6 +40,46 @@
   /* Unified Theme Colors - All Soft Pink/Mauve */
   --ink-blue: #4a4a5a;         /* Use text-primary instead of blue */
   --pink-accent: #e0a5c7;      /* Main pink accent */
+}
+
+/* Dark Theme */
+.dark {
+  /* Dark Theme - Deep Mauve & Rose Gold Palette */
+  --text-primary: #e8dce5;      /* Soft light mauve for primary text */
+  --text-secondary: #d0c4cc;    /* Medium light mauve for secondary text */
+  --text-muted: #a69ca5;        /* Muted mauve for less important text */
+  
+  /* Dark Pink/Rose Accents */
+  --accent-primary: #c7869f;    /* Deeper dusty rose */
+  --accent-soft: #2a242a;       /* Very dark pink background */
+  --accent-border: #3d343a;     /* Dark pink border */
+  
+  /* Dark Base with Mauve Undertones */
+  --background: #1c1820;        /* Deep dark with subtle mauve */
+  --surface: #241f24;           /* Dark surface with mauve undertone */
+  --border: #3a313a;           /* Dark mauve border */
+  --border-light: #2f282f;     /* Darker mauve border */
+  --card: #221d22;             /* Dark card background */
+  
+  /* Dark Interaction Colors */
+  --hover: #2d252d;            /* Dark mauve hover */
+  --focus: #342a34;            /* Dark mauve focus */
+  
+  /* Dark Extended Palette */
+  --pink-50: #2a1f25;
+  --pink-100: #321e2a;
+  --pink-200: #4a2d3e;
+  --pink-300: #6b4459;
+  --pink-400: #8c5a73;
+  --pink-500: #ad708c;
+  --mauve-50: #252025;
+  --mauve-100: #2d242a;
+  --mauve-200: #3d343a;
+  --mauve-300: #514851;
+  
+  /* Dark Unified Theme Colors */
+  --ink-blue: #e8dce5;         /* Light mauve for headings */
+  --pink-accent: #c7869f;      /* Deep rose accent */
 }
 
 /* Base Styles */
@@ -792,6 +832,121 @@ em {
   padding: 1.5rem;
   margin: 1.5rem 0;
   border-radius: 0 12px 12px 0;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.theme-toggle:hover {
+  background: var(--hover);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover .toggle-icon {
+  transform: rotate(10deg);
+}
+
+/* Smooth transitions for theme changes */
+body, 
+.sidebar, 
+.main-content, 
+.toc-link, 
+.academic-layout,
+.definition-box,
+details,
+summary,
+pre,
+code,
+blockquote {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Mobile responsive adjustments for theme toggle */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Image Description Styling for Details/Summary */
+details {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+details[open] {
+  background: var(--surface);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 0.5rem 0;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+summary:hover {
+  color: var(--accent-primary);
+}
+
+summary::-webkit-details-marker {
+  color: var(--accent-primary);
+}
+
+details div {
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+details p {
+  margin-bottom: 1rem;
+}
+
+details ul {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+details li {
+  margin-bottom: 0.5rem;
 }
 
 .definition-box strong {

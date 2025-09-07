@@ -52,18 +52,18 @@ This foundational unit introduces operating systems concepts, focusing on what a
 ### Visual: Operating System Architecture
 
 <div style="margin: 1.5rem 0; text-align: center;">
-  <img src="/ch1-intro-architecture-diagram.png" alt="Hand-drawn diagram showing layered operating system architecture. From top to bottom: User Space containing application icons and C Library box, System Call Interface as a bridge layer, Kernel Space containing the main kernel box, and Hardware Platform at the bottom with CPU, memory, and device icons. Pink/purple lines connect the layers showing data flow." style="max-width: 100%; width: min(600px, 90vw); height: auto; border: 1px solid #f0e6ed; border-radius: 12px; box-shadow: 0 4px 12px rgba(224, 165, 199, 0.15); background: #fdfcfd; padding: 1rem;" />
+  <img src="/ch1-intro-architecture-diagram.png" alt="Hand-drawn diagram showing layered operating system architecture. From top to bottom: User Space containing application icons and C Library box, System Call Interface as a bridge layer, Kernel Space containing the main kernel box, and Hardware Platform at the bottom with CPU, memory, and device icons. Pink/purple lines connect the layers showing data flow." style="max-width: 100%; width: min(600px, 90vw); height: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 12px rgba(224, 165, 199, 0.15); background: var(--surface); padding: 1rem;" />
 </div>
 
-<details style="margin: 1rem 0; padding: 1rem; background: #faf7f9; border: 1px solid #f0e6ed; border-radius: 8px;">
-<summary style="cursor: pointer; font-weight: 600; color: #4a4a5a; padding: 0.5rem 0; user-select: none;"><strong>Image Description</strong></summary>
-<div style="margin-top: 1rem; line-height: 1.6;">
+<details>
+<summary><strong>Image Description</strong></summary>
+<div>
 <p><strong>This hand-drawn diagram illustrates the hierarchical structure of an operating system. The diagram shows four main layers arranged vertically:</strong></p>
-<ul style="margin: 1rem 0; padding-left: 1.5rem;">
-<li style="margin: 0.5rem 0;"><strong>Top layer (User Space):</strong> Contains colorful application icons (browser, development tools) and a C Library rectangular box</li>
-<li style="margin: 0.5rem 0;"><strong>Second layer (System Call Interface):</strong> A horizontal rectangular barrier highlighted in pink, representing the critical boundary between user and kernel space</li>
-<li style="margin: 0.5rem 0;"><strong>Third layer (Kernel Space):</strong> Contains the main kernel box and architecture-dependent code, drawn with pink outlines</li>
-<li style="margin: 0.5rem 0;"><strong>Bottom layer (Hardware Platform):</strong> Shows physical components including CPU chip, memory modules, and storage devices</li>
+<ul>
+<li><strong>Top layer (User Space):</strong> Contains colorful application icons (browser, development tools) and a C Library rectangular box</li>
+<li><strong>Second layer (System Call Interface):</strong> A horizontal rectangular barrier highlighted in pink, representing the critical boundary between user and kernel space</li>
+<li><strong>Third layer (Kernel Space):</strong> Contains the main kernel box and architecture-dependent code, drawn with pink outlines</li>
+<li><strong>Bottom layer (Hardware Platform):</strong> Shows physical components including CPU chip, memory modules, and storage devices</li>
 </ul>
 <p><strong>Arrows and connecting lines in pink show the flow of system calls and data between layers. The entire diagram uses a professional color scheme with pink accents on a white background.</strong></p>
 </div>
@@ -253,27 +253,27 @@ This foundational unit introduces operating systems concepts, focusing on what a
 ### Visual: Process State Transitions
 
 <div style="margin: 1.5rem 0; text-align: center;">
-  <img src="/ch1-intro-process-state-diagram.png" alt="Hand-drawn process state diagram showing three oval states: Running at the top, Ready on the bottom right, and Blocked on the bottom left. Numbered arrows show transitions: arrow 1 from Running to Blocked, arrow 2 from Running to Ready, arrow 3 from Blocked to Ready, and arrow 4 from Ready to Running. All drawn in red/pink ink on white background." style="max-width: 100%; width: min(400px, 85vw); height: auto; border: 1px solid #f0e6ed; border-radius: 12px; box-shadow: 0 4px 12px rgba(224, 165, 199, 0.15); background: #fdfcfd; padding: 1rem;" />
+  <img src="/ch1-intro-process-state-diagram.png" alt="Hand-drawn process state diagram showing three oval states: Running at the top, Ready on the bottom right, and Blocked on the bottom left. Numbered arrows show transitions: arrow 1 from Running to Blocked, arrow 2 from Running to Ready, arrow 3 from Blocked to Ready, and arrow 4 from Ready to Running. All drawn in red/pink ink on white background." style="max-width: 100%; width: min(400px, 85vw); height: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 12px rgba(224, 165, 199, 0.15); background: var(--surface); padding: 1rem;" />
 </div>
 
-<details style="margin: 1rem 0; padding: 1rem; background: #faf7f9; border: 1px solid #f0e6ed; border-radius: 8px;">
-<summary style="cursor: pointer; font-weight: 600; color: #4a4a5a; padding: 0.5rem 0; user-select: none;"><strong>Image Description</strong></summary>
-<div style="margin-top: 1rem; line-height: 1.6;">
+<details>
+<summary><strong>Image Description</strong></summary>
+<div>
 <p><strong>This hand-drawn diagram illustrates the three fundamental process states and their transitions in an operating system:</strong></p>
-<ul style="margin: 1rem 0; padding-left: 1.5rem;">
-<li style="margin: 0.5rem 0;"><strong>States (drawn as ovals):</strong>
-  <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
-    <li style="margin: 0.25rem 0;">"Running" - positioned at the top center</li>
-    <li style="margin: 0.25rem 0;">"Ready" - positioned at the bottom right</li>
-    <li style="margin: 0.25rem 0;">"Blocked" - positioned at the bottom left</li>
+<ul>
+<li><strong>States (drawn as ovals):</strong>
+  <ul>
+    <li>"Running" - positioned at the top center</li>
+    <li>"Ready" - positioned at the bottom right</li>
+    <li>"Blocked" - positioned at the bottom left</li>
   </ul>
 </li>
-<li style="margin: 0.5rem 0;"><strong>Transitions (drawn as numbered arrows):</strong>
-  <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
-    <li style="margin: 0.25rem 0;">Arrow 1: Running to Blocked (downward left)</li>
-    <li style="margin: 0.25rem 0;">Arrow 2: Running to Ready (downward right)</li>
-    <li style="margin: 0.25rem 0;">Arrow 3: Blocked to Ready (horizontal right)</li>
-    <li style="margin: 0.25rem 0;">Arrow 4: Ready to Running (upward)</li>
+<li><strong>Transitions (drawn as numbered arrows):</strong>
+  <ul>
+    <li>Arrow 1: Running to Blocked (downward left)</li>
+    <li>Arrow 2: Running to Ready (downward right)</li>
+    <li>Arrow 3: Blocked to Ready (horizontal right)</li>
+    <li>Arrow 4: Ready to Running (upward)</li>
   </ul>
 </li>
 </ul>
