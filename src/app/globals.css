@@ -452,6 +452,106 @@ em {
 }
 
 /* Responsive Design */
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1.5rem;
+  right: 1rem;
+  z-index: 1001;
+  background: var(--surface);
+  border: 2px solid var(--pink-accent);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(224, 165, 199, 0.2);
+  align-items: center;
+  gap: 0.75rem;
+  font-family: Inter, sans-serif;
+  transition: all 0.2s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(224, 165, 199, 0.3);
+}
+
+.menu-toggle:active {
+  transform: translateY(0);
+}
+
+.menu-text {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 3px;
+  background: var(--pink-accent);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Mobile Header */
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: var(--text-primary);
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 260px;
@@ -464,22 +564,46 @@ em {
 }
 
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .menu-overlay {
+    display: block;
+  }
+  
   .academic-layout {
     flex-direction: column;
   }
   
   .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
-    padding: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    border-right: 1px solid var(--border-light);
+    border-bottom: none;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  .sidebar.mobile-closed {
+    transform: translateX(-100%);
   }
   
   .main-content {
     margin-left: 0;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1.5rem;
+    width: 100%;
   }
   
   .course-title {

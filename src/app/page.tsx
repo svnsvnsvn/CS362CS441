@@ -18,8 +18,10 @@ export default function HomePage() {
       <div className="main-content">
         <div className="course-header">
           <h1 className="course-title">Course Notes</h1>
-          <div className="course-meta">
-            Professor: Dr. Saeed Al Haj | Term: Fall 2025
+          <div className="course-meta" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span>Operating Systems: Dr. Saeed Al Haj</span>
+            <span>Intrusion Detection: Dr. Mini Zeng</span>
+            <span>Term: Fall 2025</span>
           </div>
         </div>
 
@@ -110,7 +112,12 @@ export default function HomePage() {
 
                     {/* Personal Notes Disclaimer */}
           <div className="content-section" style={{ background: 'var(--accent-soft)', border: '1px solid var(--accent-border)', borderRadius: '8px', padding: '1.5rem', margin: '2rem 0' }}>
-            <h3 style={{ marginBottom: '1rem', color: 'var(--ink-blue)', fontSize: '1.1rem' }}>📝 Personal Study Notes</h3>
+            <h3 style={{ marginBottom: '1rem', color: 'var(--ink-blue)', fontSize: '1.1rem' }}>Personal Study Notes</h3>
+            <p style={{ marginBottom: '0.75rem', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
+              These are my personal study notes for two courses that felt particularly pivotal during Fall 2025. 
+              While I took other courses this semester, these two stood out as foundational to my understanding of 
+              systems and security concepts, making them worth documenting thoroughly.
+            </p>
             <p style={{ marginBottom: '0.75rem', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
               <strong>Disclaimer:</strong> Use these notes as supplementary material only. Always refer to official course materials 
               and consult with your instructor for authoritative information.

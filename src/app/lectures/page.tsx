@@ -18,8 +18,10 @@ export default function LecturesPage() {
       <div className="main-content">
         <div className="course-header">
           <h1 className="course-title">All Lectures</h1>
-          <div className="course-meta">
-            Professor: Dr. Saeed Al Haj | Term: Fall 2025
+          <div className="course-meta" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span>Operating Systems: Dr. Saeed Al Haj</span>
+            <span>Intrusion Detection: Dr. Mini Zeng</span>
+            <span>Term: Fall 2025</span>
           </div>
         </div>
         <div className="lecture-content">

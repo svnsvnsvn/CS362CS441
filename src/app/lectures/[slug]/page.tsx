@@ -39,7 +39,7 @@ export default async function LecturePage({ params }: LecturePageProps) {
         <div className="course-header">
           <h1 className="course-title">Course Notes</h1>
           <div className="course-meta">
-            Professor: Dr. Saeed Al Haj | Term: Fall 2025
+            {metadata.course === 'ids' ? 'Professor: Dr. Mini Zeng' : 'Professor: Dr. Saeed Al Haj'} | Term: Fall 2025
           </div>
         </div>
 
